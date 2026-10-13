@@ -1,0 +1,22 @@
+{
+  "name": "crew-assesment",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "node mock-app/server.js",
+    "test": "playwright test",
+    "test:headed": "playwright test --headed",
+    "test:report": "playwright show-report"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "express": "^5.3.0",
+    "multer": "^2.4.0"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.64.0"
+  }
+}

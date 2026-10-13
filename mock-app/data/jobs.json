@@ -1,0 +1,188 @@
+[
+  {
+    "id": 1,
+    "title": "Senior Full Stack Engineer",
+    "department": "Engineering",
+    "location": "Remote (US/EU)",
+    "type": "Full-time",
+    "experience": 5,
+    "experienceLabel": "5+ years",
+    "salaryMin": 140000,
+    "salaryMax": 180000,
+    "salaryCurrency": "USD",
+    "description": "Architect and scale distributed web applications, high-performance APIs, and interactive frontend interfaces using React, Node.js, and cloud services.",
+    "responsibilities": [
+      "Design and maintain scalable microservices and RESTful/GraphQL APIs.",
+      "Collaborate with product and UX teams to build responsive, accessible web interfaces.",
+      "Champion automated testing, CI/CD pipeline improvements, and code reviews.",
+      "Optimize system bottlenecks for low latency and high availability."
+    ],
+    "requirements": [
+      "5+ years of production experience in JavaScript/TypeScript, React, and Node.js.",
+      "Solid understanding of relational and NoSQL databases (PostgreSQL, Redis).",
+      "Demonstrated experience writing unit, integration, and end-to-end automated tests.",
+      "Strong communication and collaborative problem-solving skills."
+    ],
+    "benefits": [
+      "Comprehensive medical, dental, and vision insurance with 100% premium coverage.",
+      "Flexible remote-first work environment with $1,500 home office stipend.",
+      "Unlimited paid time off (PTO) and parental leave.",
+      "Annual $3,000 learning and professional development budget."
+    ]
+  },
+  {
+    "id": 2,
+    "title": "Lead Product Designer",
+    "department": "Design",
+    "location": "New York, NY (Hybrid)",
+    "type": "Full-time",
+    "experience": 4,
+    "experienceLabel": "4+ years",
+    "salaryMin": 130000,
+    "salaryMax": 160000,
+    "salaryCurrency": "USD",
+    "description": "Lead design systems, user research, and end-to-end product design flows from ideation to launch across web and mobile experiences.",
+    "responsibilities": [
+      "Create high-fidelity wireframes, interactive prototypes, and design specs in Figma.",
+      "Conduct user interviews, usability tests, and synthesize qualitative findings.",
+      "Maintain and evolve our multi-brand design tokens and component system.",
+      "Partner closely with product managers and engineers during sprint delivery."
+    ],
+    "requirements": [
+      "4+ years of digital product design experience in high-growth SaaS environments.",
+      "Expertise in Figma, design tokens, component variants, and accessibility standards.",
+      "Demonstrated portfolio of shipped web products with measurable user impact.",
+      "Strong presentation skills and data-informed decision-making."
+    ],
+    "benefits": [
+      "Top-tier health and wellness coverage.",
+      "Commuter benefits and hybrid office lunches.",
+      "401(k) matching up to 5%.",
+      "Flexible hybrid schedule (2 days in-office, 3 days remote)."
+    ]
+  },
+  {
+    "id": 3,
+    "title": "Staff DevOps & Platform Engineer",
+    "department": "Engineering",
+    "location": "San Francisco, CA (Remote)",
+    "type": "Full-time",
+    "experience": 7,
+    "experienceLabel": "7+ years",
+    "salaryMin": 160000,
+    "salaryMax": 210000,
+    "salaryCurrency": "USD",
+    "description": "Build resilient Kubernetes infrastructure, automate multi-region deployments, and ensure 99.99% uptime for core production services.",
+    "responsibilities": [
+      "Architect AWS/GCP cloud infrastructure using Terraform and GitOps.",
+      "Manage Kubernetes clusters, service meshes (Istio), and observability pipelines.",
+      "Implement zero-trust security controls, secrets management, and automated audits.",
+      "Lead incident response and blameless post-mortem culture."
+    ],
+    "requirements": [
+      "7+ years managing large-scale distributed cloud infrastructure.",
+      "Deep expertise in Kubernetes, Docker, Terraform, and Linux internals.",
+      "Proficiency in Go, Python, or Bash scripting for automation.",
+      "Proven track record maintaining high availability and disaster recovery."
+    ],
+    "benefits": [
+      "Competitive equity package (stock options).",
+      "Home office setup budget and monthly internet reimbursement.",
+      "Wellness stipend ($150/month).",
+      "Company retreats twice a year."
+    ]
+  },
+  {
+    "id": 4,
+    "title": "Associate Product Manager",
+    "department": "Product",
+    "location": "Austin, TX (On-site)",
+    "type": "Full-time",
+    "experience": 1,
+    "experienceLabel": "1+ years",
+    "salaryMin": 85000,
+    "salaryMax": 110000,
+    "salaryCurrency": "USD",
+    "description": "Drive product discovery, synthesize candidate feedback, define user stories, and collaborate with engineering squads on delivery.",
+    "responsibilities": [
+      "Translate candidate and recruiter pain points into actionable PRDs and roadmaps.",
+      "Define success metrics and analyze product funnel drop-off analytics.",
+      "Facilitate sprint planning, backlog grooming, and release coordination.",
+      "Conduct competitive benchmarking and market research."
+    ],
+    "requirements": [
+      "1+ years of experience in product management, business analysis, or technical consulting.",
+      "Strong analytical capability (SQL, Amplitude, or Mixpanel experience preferred).",
+      "Exceptional empathy for candidate experience and customer problem solving.",
+      "Bachelor's degree or equivalent practical experience."
+    ],
+    "benefits": [
+      "Health, dental, and vision insurance.",
+      "Catered daily lunches in Austin office.",
+      "Mentorship program paired with VP of Product.",
+      "Competitive 401(k) retirement plan."
+    ]
+  },
+  {
+    "id": 5,
+    "title": "Senior QA Automation Engineer",
+    "department": "Engineering",
+    "location": "Remote (Worldwide)",
+    "type": "Full-time",
+    "experience": 3,
+    "experienceLabel": "3+ years",
+    "salaryMin": 115000,
+    "salaryMax": 145000,
+    "salaryCurrency": "USD",
+    "description": "Own quality strategy, develop end-to-end automated testing pipelines with Playwright, and ensure rock-solid reliability across all releases.",
+    "responsibilities": [
+      "Develop and maintain Playwright/TypeScript automated test frameworks.",
+      "Execute exploratory testing, boundary value testing, and chaos network simulations.",
+      "Integrate automated test runs into GitHub Actions CI/CD pipelines.",
+      "Collaborate with developers to establish testability and shift-left QA practices."
+    ],
+    "requirements": [
+      "3+ years in automated quality engineering using Playwright, Cypress, or Selenium.",
+      "Strong understanding of web technologies, HTTP protocols, and REST APIs.",
+      "Experience diagnosing race conditions, network failures, and browser quirks.",
+      "Passion for test craftsmanship and defect documentation."
+    ],
+    "benefits": [
+      "100% remote anywhere in world with asynchronous culture.",
+      "Generous hardware refresh every 2 years.",
+      "Health insurance reimbursement.",
+      "Learning and certification stipend."
+    ]
+  },
+  {
+    "id": 6,
+    "title": "VP of Engineering",
+    "department": "Engineering",
+    "location": "San Francisco, CA (Hybrid)",
+    "type": "Full-time",
+    "experience": 10,
+    "experienceLabel": "10+ years",
+    "salaryMin": 220000,
+    "salaryMax": 280000,
+    "salaryCurrency": "USD",
+    "description": "Lead, mentor, and scale a high-performing engineering organization across platform, frontend, QA, and security disciplines.",
+    "responsibilities": [
+      "Set technical direction and architectural governance across all engineering teams.",
+      "Grow engineering headcount from 35 to 80+ engineers over the next 18 months.",
+      "Foster an inclusive, high-velocity engineering culture centered on craftsmanship.",
+      "Partner with executive leadership on corporate roadmap and capital allocation."
+    ],
+    "requirements": [
+      "10+ years of progressive engineering leadership experience (Director or VP level).",
+      "Demonstrated experience scaling distributed systems and agile engineering teams.",
+      "Proven ability to hire, retain, and inspire diverse senior engineering talent.",
+      "Strong business acumen and strategic clarity."
+    ],
+    "benefits": [
+      "Executive equity grant and performance bonus.",
+      "Executive health and wellness program.",
+      "Flexible schedule and travel accommodations.",
+      "Full relocation assistance if needed."
+    ]
+  }
+]

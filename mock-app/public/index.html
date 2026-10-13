@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Explore career opportunities and submit job applications on the TalentCraft Hiring Portal.">
+  <title>TalentCraft Careers | Candidate Job Application Portal</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <!-- Header / Navigation -->
+  <header class="site-header" role="banner">
+    <div class="container header-inner">
+      <a href="/" class="brand-logo" id="brand-logo" data-testid="brand-logo">
+        <div class="logo-mark">TC</div>
+        <div class="logo-text">
+          <span class="logo-title">TalentCraft</span>
+          <span class="logo-subtitle">Careers & Open Roles</span>
+        </div>
+      </a>
+      <nav class="header-nav" role="navigation" aria-label="Main Navigation">
+        <a href="/" class="nav-link active" id="nav-jobs" data-testid="nav-jobs">Open Positions</a>
+        <a href="#about" class="nav-link">Culture & Benefits</a>
+        <a href="#faq" class="nav-link">Hiring FAQ</a>
+      </nav>
+      <div class="header-cta">
+        <span class="open-count-badge" id="header-jobs-badge" data-testid="header-jobs-badge">Loading roles...</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- Global Toast / Banner for Network Notifications -->
+  <div id="global-toast-container" class="toast-container" role="region" aria-live="polite"></div>
+
+  <!-- Main Content Container -->
+  <main class="main-content" id="app-root" role="main">
+    
+    <!-- VIEW 1: JOB DIRECTORY & SEARCH -->
+    <section id="jobs-view" class="view-section active" data-testid="jobs-view">
+      <!-- Hero Banner -->
+      <section class="hero-section">
+        <div class="container hero-content">
+          <span class="hero-tag">Join Our Engineering & Product Team</span>
+          <h1 class="hero-title">Build the Future of Modern Collaboration</h1>
+          <p class="hero-lead">We are hiring visionary engineers, product designers, and platform builders across the globe. Find your next role below.</p>
+        </div>
+      </section>
+
+      <!-- Filter & Search Toolbar -->
+      <section class="filters-section">
+        <div class="container">
+          <div class="filters-card">
+            <div class="search-input-group">
+              <span class="search-icon" aria-hidden="true">🔍</span>
+              <input 
+                type="text" 
+                id="search-input" 
+                class="form-control" 
+                placeholder="Search by job title, keyword, or tech stack..." 
+                aria-label="Search jobs"
+                data-testid="search-input"
+              >
+              <button type="button" id="clear-search-btn" class="clear-btn" aria-label="Clear search query" style="display: none;">✕</button>
+            </div>
+
+            <div class="filter-controls">
+              <div class="filter-group">
+                <label for="filter-department" class="filter-label">Department</label>
+                <select id="filter-department" class="form-select" data-testid="filter-department">
+                  <option value="all">All Departments</option>
+                  <option value="Engineering">Engineering</option>
+                  <option value="Design">Design</option>
+                  <option value="Product">Product</option>
+                </select>
+              </div>
+
+              <div class="filter-group">
+                <label for="filter-experience" class="filter-label">Min. Experience</label>
+                <select id="filter-experience" class="form-select" data-testid="filter-experience">
+                  <option value="">Any Experience</option>
+                  <option value="1">1+ years</option>
+                  <option value="3">3+ years</option>
+                  <option value="5">5+ years</option>
+                  <option value="7">7+ years</option>
+                  <option value="10">10+ years</option>
+                </select>
+              </div>
+
+              <div class="filter-group filter-actions">
+                <button type="button" id="reset-filters-btn" class="btn btn-outline" data-testid="reset-filters-btn">Reset Filters</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Results Summary Bar -->
+          <div class="results-meta">
+            <p id="results-count" class="results-count" data-testid="results-count">Showing 6 open positions</p>
+          </div>
+
+          <!-- Job Cards Grid -->
+          <div id="jobs-grid" class="jobs-grid" data-testid="jobs-grid">
+            <!-- Rendered dynamically by app.js -->
+          </div>
+
+          <!-- Empty State Container -->
+          <div id="empty-state" class="empty-state-card" data-testid="empty-state" style="display: none;">
+            <div class="empty-icon" aria-hidden="true">🔎</div>
+            <h3>No matching job openings found</h3>
+            <p>Try clearing your keyword filters or broadening your department criteria.</p>
+            <button type="button" id="empty-reset-btn" class="btn btn-primary" data-testid="empty-reset-btn">Clear All Filters</button>
+          </div>
+        </div>
+      </section>
+    </section>
+
+    <!-- VIEW 2: JOB DETAIL & APPLICATION VIEW -->
+    <section id="job-detail-view" class="view-section" data-testid="job-detail-view" style="display: none;">
+      <div class="container">
+        
+        <!-- Breadcrumbs Navigation -->
+        <nav class="breadcrumb-nav" aria-label="Breadcrumb">
+          <ol class="breadcrumb-list">
+            <li class="breadcrumb-item"><a href="/" id="breadcrumb-home" data-testid="breadcrumb-home">← All Positions</a></li>
+            <li class="breadcrumb-separator">/</li>
+            <li class="breadcrumb-item"><span id="breadcrumb-department" data-testid="breadcrumb-department">Department</span></li>
+            <li class="breadcrumb-separator">/</li>
+            <li class="breadcrumb-item active" aria-current="page"><span id="breadcrumb-title" data-testid="breadcrumb-title">Job Title</span></li>
+          </ol>
+        </nav>
+
+        <div class="job-detail-layout">
+          <!-- Left Column: Role Details -->
+          <div class="job-description-pane">
+            <div class="role-header-card">
+              <div class="role-badges">
+                <span id="detail-dept-badge" class="badge badge-dept" data-testid="detail-dept-badge">Engineering</span>
+                <span id="detail-type-badge" class="badge badge-type" data-testid="detail-type-badge">Full-time</span>
+                <span id="detail-location-badge" class="badge badge-location" data-testid="detail-location-badge">Remote</span>
+              </div>
+              <h1 id="detail-title" class="role-title" data-testid="detail-title">Senior Full Stack Engineer</h1>
+              <div class="role-meta-strip">
+                <div class="meta-item">
+                  <span class="meta-label">Compensation</span>
+                  <span id="detail-salary" class="meta-value highlight" data-testid="detail-salary">$140,000 - $180,000 USD</span>
+                </div>
+                <div class="meta-item">
+                  <span class="meta-label">Experience Required</span>
+                  <span id="detail-experience" class="meta-value" data-testid="detail-experience">5+ years</span>
+                </div>
+              </div>
+            </div>
+
+            <article class="job-body">
+              <section class="job-body-section">
+                <h2>Role Overview</h2>
+                <p id="detail-description" data-testid="detail-description">Description text...</p>
+              </section>
+
+              <section class="job-body-section">
+                <h2>Key Responsibilities</h2>
+                <ul id="detail-responsibilities" class="styled-list" data-testid="detail-responsibilities"></ul>
+              </section>
+
+              <section class="job-body-section">
+                <h2>What We Are Looking For</h2>
+                <ul id="detail-requirements" class="styled-list" data-testid="detail-requirements"></ul>
+              </section>
+
+              <section class="job-body-section">
+                <h2>Benefits & Perks</h2>
+                <ul id="detail-benefits" class="styled-list" data-testid="detail-benefits"></ul>
+              </section>
+            </article>
+          </div>
+
+          <!-- Right Column: Application Form -->
+          <aside class="application-sidebar">
+            <div class="application-card" id="application-card-wrapper">
+              <div class="card-header">
+                <h2>Apply for this Position</h2>
+                <p>Complete the form below to submit your application directly to the hiring manager.</p>
+              </div>
+
+              <!-- Form Status / Error Alert Container -->
+              <div id="form-alert" class="alert-banner" role="alert" style="display: none;" data-testid="form-alert">
+                <span class="alert-icon">⚠️</span>
+                <div class="alert-content">
+                  <h4 id="form-alert-title" class="alert-title">Submission Error</h4>
+                  <p id="form-alert-message" class="alert-message">Please correct the highlighted errors.</p>
+                </div>
+                <button type="button" class="alert-close" id="form-alert-close" aria-label="Close alert">✕</button>
+              </div>
+
+              <form id="application-form" novalidate data-testid="application-form">
+                <input type="hidden" id="applied-job-id" name="jobId" value="">
+
+                <!-- Full Name -->
+                <div class="form-group" id="group-fullName">
+                  <label for="fullName" class="form-label">Full Name <span class="required-asterisk">*</span></label>
+                  <input 
+                    type="text" 
+                    id="fullName" 
+                    name="fullName" 
+                    class="form-control" 
+                    placeholder="e.g. Jane Doe" 
+                    required 
+                    autocomplete="name"
+                    data-testid="input-fullname"
+                  >
+                  <span class="field-error" id="error-fullName" data-testid="error-fullname"></span>
+                </div>
+
+                <!-- Email Address -->
+                <div class="form-group" id="group-email">
+                  <label for="email" class="form-label">Email Address <span class="required-asterisk">*</span></label>
+                  <input 
+                    type="email" 
+                    id="email" 
+                    name="email" 
+                    class="form-control" 
+                    placeholder="e.g. jane.doe@example.com" 
+                    required 
+                    autocomplete="email"
+                    data-testid="input-email"
+                  >
+                  <span class="field-error" id="error-email" data-testid="error-email"></span>
+                </div>
+
+                <!-- Phone Number -->
+                <div class="form-group" id="group-phone">
+                  <label for="phone" class="form-label">Phone Number (Optional)</label>
+                  <input 
+                    type="tel" 
+                    id="phone" 
+                    name="phone" 
+                    class="form-control" 
+                    placeholder="e.g. +1 (555) 019-2834" 
+                    autocomplete="tel"
+                    data-testid="input-phone"
+                  >
+                  <span class="field-error" id="error-phone" data-testid="error-phone"></span>
+                </div>
+
+                <!-- Experience (Years) -->
+                <div class="form-group" id="group-experience">
+                  <label for="experience" class="form-label">Years of Relevant Experience <span class="required-asterisk">*</span></label>
+                  <input 
+                    type="number" 
+                    id="experience" 
+                    name="experience" 
+                    class="form-control" 
+                    placeholder="e.g. 5" 
+                    min="0" 
+                    max="50" 
+                    step="1"
+                    required 
+                    data-testid="input-experience"
+                  >
+                  <span class="field-helper">Enter a number between 0 and 50</span>
+                  <span class="field-error" id="error-experience" data-testid="error-experience"></span>
+                </div>
+
+                <!-- LinkedIn / Portfolio -->
+                <div class="form-group" id="group-linkedin">
+                  <label for="linkedin" class="form-label">LinkedIn or Portfolio URL (Optional)</label>
+                  <input 
+                    type="url" 
+                    id="linkedin" 
+                    name="linkedin" 
+                    class="form-control" 
+                    placeholder="https://linkedin.com/in/username" 
+                    data-testid="input-linkedin"
+                  >
+                  <span class="field-error" id="error-linkedin" data-testid="error-linkedin"></span>
+                </div>
+
+                <!-- Cover Letter -->
+                <div class="form-group" id="group-coverLetter">
+                  <div class="label-with-counter">
+                    <label for="coverLetter" class="form-label">Cover Letter & Summary <span class="required-asterisk">*</span></label>
+                    <span id="char-counter" class="char-counter" data-testid="char-counter">0 / 2000</span>
+                  </div>
+                  <textarea 
+                    id="coverLetter" 
+                    name="coverLetter" 
+                    class="form-control form-textarea" 
+                    rows="5" 
+                    placeholder="Tell us why you are a great fit for this position (minimum 20 characters)..." 
+                    maxlength="2000"
+                    required
+                    data-testid="input-coverletter"
+                  ></textarea>
+                  <span class="field-error" id="error-coverLetter" data-testid="error-coverletter"></span>
+                </div>
+
+                <!-- Resume Upload -->
+                <div class="form-group" id="group-resume">
+                  <label for="resume" class="form-label">Resume / CV (PDF, DOC, DOCX up to 5MB)</label>
+                  <div class="file-upload-wrapper">
+                    <input 
+                      type="file" 
+                      id="resume" 
+                      name="resume" 
+                      class="file-input" 
+                      accept=".pdf,.doc,.docx,application/pdf,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+                      data-testid="input-resume"
+                    >
+                    <div class="file-drop-target" id="file-drop-area" tabindex="0">
+                      <span class="file-icon" aria-hidden="true">📄</span>
+                      <span class="file-text" id="file-status-text">Click or drag & drop resume file</span>
+                    </div>
+                  </div>
+                  <span class="field-error" id="error-resume" data-testid="error-resume"></span>
+                </div>
+
+                <!-- Terms and Privacy Checkbox -->
+                <div class="form-group checkbox-group" id="group-terms">
+                  <label class="checkbox-container">
+                    <input 
+                      type="checkbox" 
+                      id="termsAccepted" 
+                      name="termsAccepted" 
+                      required
+                      data-testid="input-terms"
+                    >
+                    <span class="checkbox-checkmark"></span>
+                    <span class="checkbox-label-text">
+                      I agree to the <a href="#privacy" target="_blank">Privacy Policy</a> and consent to having my application data processed for recruiting purposes. <span class="required-asterisk">*</span>
+                    </span>
+                  </label>
+                  <span class="field-error" id="error-termsAccepted" data-testid="error-terms"></span>
+                </div>
+
+                <!-- Submit Action -->
+                <div class="form-submit-row">
+                  <button 
+                    type="submit" 
+                    id="submit-btn" 
+                    class="btn btn-primary btn-block btn-lg" 
+                    data-testid="submit-btn"
+                  >
+                    <span class="btn-spinner" aria-hidden="true" style="display: none;"></span>
+                    <span class="btn-text">Submit Application</span>
+                  </button>
+                  <p class="submit-note">Applications are reviewed within 2 business days.</p>
+                </div>
+              </form>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <!-- VIEW 3: 404 NOT FOUND VIEW -->
+    <section id="not-found-view" class="view-section" data-testid="not-found-view" style="display: none;">
+      <div class="container not-found-container">
+        <div class="not-found-card">
+          <div class="not-found-code">404</div>
+          <h2 class="not-found-title">Role Not Found or Expired</h2>
+          <p class="not-found-text">The job position you are searching for may have been filled, removed, or the link is incorrect.</p>
+          <a href="/" class="btn btn-primary" id="not-found-back-btn" data-testid="back-to-jobs-btn">← Browse All Open Roles</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Success Modal Dialog -->
+  <div id="success-modal" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modal-title" style="display: none;" data-testid="success-modal">
+    <div class="modal-card">
+      <div class="modal-icon-badge" aria-hidden="true">🎉</div>
+      <h2 id="modal-title" class="modal-title" data-testid="modal-title">Application Submitted Successfully!</h2>
+      <p class="modal-subtitle">Thank you for taking the time to apply. We have received your application materials.</p>
+      
+      <div class="application-receipt-box">
+        <div class="receipt-row">
+          <span class="receipt-label">Reference ID</span>
+          <span id="receipt-id" class="receipt-value code" data-testid="receipt-id">APP-2026-0000</span>
+        </div>
+        <div class="receipt-row">
+          <span class="receipt-label">Applied Role</span>
+          <span id="receipt-role" class="receipt-value" data-testid="receipt-role">Senior Full Stack Engineer</span>
+        </div>
+        <div class="receipt-row">
+          <span class="receipt-label">Candidate Email</span>
+          <span id="receipt-email" class="receipt-value" data-testid="receipt-email">candidate@example.com</span>
+        </div>
+        <div class="receipt-row">
+          <span class="receipt-label">Status</span>
+          <span class="receipt-badge">Received & Under Review</span>
+        </div>
+      </div>
+
+      <div class="modal-actions">
+        <button type="button" id="modal-close-btn" class="btn btn-primary btn-block" data-testid="modal-close-btn">Return to Open Roles</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="container footer-content">
+      <p>© 2026 TalentCraft Inc. All rights reserved. Equal Opportunity Employer.</p>
+      <div class="footer-links">
+        <a href="/">Careers</a>
+        <a href="#privacy">Privacy</a>
+        <a href="#terms">Terms</a>
+        <a href="#security">Security</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="/js/validation.js"></script>
+  <script src="/js/router.js"></script>
+  <script src="/js/app.js"></script>
+</body>
+</html>
